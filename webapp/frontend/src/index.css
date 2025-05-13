@@ -3,3 +3,26 @@
 body {
     background-color: darkslategrey;
 }
+
+.counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #1a1f71;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

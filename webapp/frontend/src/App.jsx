@@ -1,21 +1,25 @@
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 
+import RootLayout from './pages/Root';
+import MainPage from './pages/MainPage';
+import AboutPage from './pages/AboutPage';
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootLayout/>,
+    element: <RootLayout />,
     children: [
       {
         path: 'main',
-        element: <MainPage/>,
+        element: <MainPage />,
       },
       {
         path: 'about',
-        element: <AboutPage/>,
+        element: <AboutPage />,
       },
       {
         path: '*',
-        element: <Navigate to="/main" replace/>
+        element: <Navigate to="/main" replace />
       }
     ]
   }])

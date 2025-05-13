@@ -1,12 +1,26 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from peft import PeftModel
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import torch.nn.functional as F
 import torch
 
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:5173",
+    "https://veritas-eight.vercel.app"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 base_model = AutoModelForSequenceClassification.from_pretrained(
     "bert-base-uncased"
