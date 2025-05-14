@@ -35,7 +35,7 @@ const InputBar = () => {
 
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const data = await res.json();
-            setResponse(data); // spodziewamy się { label, confidence }
+            setResponse(data);
         } catch (err) {
             console.error('Error while sending:', err);
             setError('Server error.');
