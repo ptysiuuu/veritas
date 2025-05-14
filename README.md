@@ -35,7 +35,7 @@ The goal of **Veritas** is to:
 **Backend**
 - FastAPI
 - Hosted on Google Cloud Platform (GCP)
-- Runs a fine-tuned transformer model (e.g., BERT, RoBERTa)
+- Runs a fine-tuned transformer model (BERT)
 
 **ML & Training**
 - Hugging Face Transformers
@@ -46,13 +46,11 @@ The goal of **Veritas** is to:
 
 ### Frontend
 - Hosted on **Vercel**
-- Automatic deployment from `main` branch
-- Uses environment variable for API URL
+- Designed in React and TailwindCSS
 
 ### Backend
 - Dockerized FastAPI application
 - Hosted on **Google Cloud Run**
-- Exposes `/predict` endpoint for inference
 
 ## 📊 Model Training & Report
 
