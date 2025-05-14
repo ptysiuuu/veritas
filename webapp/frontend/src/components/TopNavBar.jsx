@@ -7,7 +7,7 @@ export default function TopNavBar({ darkMode, setDarkMode }) {
     };
 
     return (
-        <header className="w-full flex items-center justify-between px-6 py-4 shadow-md dark:bg-gray-800 animate-fade-in-delay-3">
+        <header className="w-full flex items-center justify-between px-6 py-4 shadow-md animate-fade-in-delay-3">
             <h1 className="text-5xl font-bold cal-sans-regular">Veritas</h1>
             <div className="flex items-center gap-4">
                 <Link to="/about" className="text-lg hover:underline mr-30">
@@ -15,7 +15,7 @@ export default function TopNavBar({ darkMode, setDarkMode }) {
                 </Link>
                 <button
                     onClick={handleClick}
-                    className="px-4 py-2 rounded-full transition cursor-pointer dark:bg-white dark:text-black dark:hover:bg-stone-800 bg-black text-white hover:bg-gray-800
+                    className="px-4 py-2 rounded-full transition cursor-pointer dark:bg-white dark:text-black dark:hover:bg-stone-500 bg-black text-white hover:bg-gray-800
                         "
                 >
                     {darkMode ? (

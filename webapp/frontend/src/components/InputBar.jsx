@@ -51,12 +51,12 @@ const InputBar = () => {
                 placeholder="Input the article..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                className="w-full p-4 border-3 border-white dark:border-white rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-black text-black h-full"
+                className="w-full p-4 border-3 placeholder:dark:text-white placeholder:text-black border-white dark:border-white rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-black dark:text-white text-black h-full"
             />
 
             <button
                 onClick={handleSubmit}
-                className="self-start bg-black text-white dark:bg-white dark:text-black px-6 py-2 mb-2 rounded-full hover:bg-stone-800 cursor-pointer transition-colors disabled:opacity-50"
+                className="self-start bg-black text-white dark:bg-white dark:text-black px-6 py-2 mb-2 rounded-full hover:bg-stone-800 dark:hover:bg-stone-500 cursor-pointer transition-colors disabled:opacity-50"
                 disabled={loading}
             >
                 {loading ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 animate-spin">
@@ -72,14 +72,16 @@ const InputBar = () => {
             )}
 
             {response && (
-                <div className="bg-gray-100 p-4 rounded-lg border border-gray-300">
-                    <strong className="block mb-2 text-gray-800">Classification results:</strong>
-                    <div className="text-gray-700">
+                <div className="bg-gray-300 p-4 rounded-lg border border-gray-300 dark:bg-gray-900 dark:text-white">
+                    <strong className="block mb-2 text-gray-800 dark:text-white">Classification results:</strong>
+                    <div className="text-black dark:text-white">
                         <p className={`text-center text-2xl font-semibold ${response.label ? 'text-green-600' : 'text-red-600'}`}>
                             <strong>{response.label ? 'Truth' : 'Fake'}</strong>
                         </p>
                         <p><strong>Confidence:</strong></p>
-                        <Counter target={response.confidence} />
+                        <div className="text-center">
+                            <Counter target={response.confidence} />
+                        </div>
                     </div>
                 </div>
             )}
