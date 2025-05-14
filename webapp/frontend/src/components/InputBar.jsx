@@ -46,17 +46,20 @@ const InputBar = () => {
 
     return (
         <div className="max-w-6xl w-full mx-auto rounded-2x lp-6 flex flex-col gap-4 shadow-md mt-25 h-[70vh]">
+            <p className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                Paste or write the article you want to verify below:
+            </p>
             <textarea
                 rows="6"
-                placeholder="Input the article..."
+                placeholder=""
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                className="w-full p-4 border-3 placeholder:dark:text-white placeholder:text-black border-white dark:border-white rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-black dark:text-white text-black h-full"
+                className="w-full p-4 border-3 border-white dark:border-white rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-black dark:text-white text-black h-full"
             />
 
             <button
                 onClick={handleSubmit}
-                className="self-start bg-black text-white dark:bg-white dark:text-black px-6 py-2 mb-2 rounded-full hover:bg-stone-800 dark:hover:bg-stone-500 cursor-pointer transition-colors disabled:opacity-50"
+                className="self-start bg-black text-white dark:bg-white font-semibold dark:text-black px-6 py-2 mb-2 rounded-full hover:bg-stone-800 dark:hover:bg-stone-500 cursor-pointer transition-colors disabled:opacity-50"
                 disabled={loading}
             >
                 {loading ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 animate-spin">
@@ -75,11 +78,11 @@ const InputBar = () => {
                 <div className="bg-gray-300 p-4 rounded-lg border border-gray-300 dark:bg-gray-900 dark:text-white">
                     <strong className="block mb-2 text-gray-800 dark:text-white">Classification results:</strong>
                     <div className="text-black dark:text-white">
-                        <p className={`text-center text-2xl font-semibold ${response.label ? 'text-green-600' : 'text-red-600'}`}>
-                            <strong>{response.label ? 'Truth' : 'Fake'}</strong>
+                        <p className={`text-center text-4xl font-semibold ${response.label ? 'text-green-600' : 'text-red-600'}`}>
+                            <strong>{response.label ? 'The article is likely to be true' : 'The article is likely to be fake'}</strong>
                         </p>
                         <p><strong>Confidence:</strong></p>
-                        <div className="text-center">
+                        <div className="text-center text-4xl">
                             <Counter target={response.confidence} />
                         </div>
                     </div>

@@ -10,6 +10,9 @@ export default function TopNavBar({ darkMode, setDarkMode }) {
         <header className="w-full flex items-center justify-between px-6 py-4 shadow-md animate-fade-in-delay-3">
             <h1 className="text-5xl font-bold cal-sans-regular">Veritas</h1>
             <div className="flex items-center gap-4">
+                <Link to="/main" className="text-lg hover:underline mr-10">
+                    Try it!
+                </Link>
                 <Link to="/about" className="text-lg hover:underline mr-30">
                     How does it work?
                 </Link>
