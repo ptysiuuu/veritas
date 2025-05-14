@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 body {
-    background-color: darkslategrey;
+    background: linear-gradient(to bottom right, darkslategrey, lightcyan);
+    margin: 0;
+    font-family: sans-serif;
 }
 
 .counter {
@@ -15,14 +17,42 @@ body {
     animation: fadeIn 0.8s ease-in;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
+.cal-sans-regular {
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+.inter-bold {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.inter-light {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+@theme {
+    --animate-fade-in: fade-in 0.7s ease-out 0s forwards;
+    --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.5s forwards;
+    --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.8s forwards;
+    --animate-fade-in-delay-3: fade-in 0.7s ease-out 1.1s forwards;
+    --animate-fade-in-delay-4: fade-in 0.7s ease-out 1.4s forwards;
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }

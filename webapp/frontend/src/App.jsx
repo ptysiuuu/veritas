@@ -10,6 +10,10 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
+        index: true,
+        element: <Navigate to="/main" replace />,
+      },
+      {
         path: 'main',
         element: <MainPage />,
       },
@@ -17,10 +21,6 @@ const router = createBrowserRouter([
         path: 'about',
         element: <AboutPage />,
       },
-      {
-        path: '*',
-        element: <Navigate to="/main" replace />
-      }
     ]
   }])
 

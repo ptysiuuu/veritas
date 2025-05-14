@@ -20,6 +20,7 @@ const InputBar = () => {
     const [error, setError] = useState(null);
 
     const handleSubmit = async () => {
+        if (!input) return;
         const sanitized = sanitizeInput(input);
         setLoading(true);
         setError(null);
@@ -44,21 +45,24 @@ const InputBar = () => {
     };
 
     return (
-        <div className="bg-white max-w-5xl w-full mx-auto rounded-2xl border-2 border-gray-200 p-6 flex flex-col gap-4 shadow-md mt-20">
+        <div className="max-w-6xl w-full mx-auto rounded-2x lp-6 flex flex-col gap-4 shadow-md mt-25 h-[70vh]">
             <textarea
                 rows="6"
                 placeholder="Input the article..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                className="w-full p-4 border rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-800"
+                className="w-full p-4 border-3 border-white dark:border-white rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-black text-black h-full"
             />
 
             <button
                 onClick={handleSubmit}
-                className="self-start bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 cursor-pointer transition-colors disabled:opacity-50"
+                className="self-start bg-black text-white dark:bg-white dark:text-black px-6 py-2 mb-2 rounded-full hover:bg-stone-800 cursor-pointer transition-colors disabled:opacity-50"
                 disabled={loading}
             >
-                {loading ? 'Loading...' : 'Send to classification'}
+                {loading ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 animate-spin">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+                    : 'Send to classification'}
             </button>
 
             {error && (
