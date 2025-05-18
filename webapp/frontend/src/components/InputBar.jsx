@@ -49,6 +49,9 @@ const InputBar = () => {
             <p className="text-lg font-medium text-gray-900 dark:text-gray-100">
                 Paste or write the article you want to verify below:
             </p>
+            <p className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                Because of issues with the backend hosting if the loading is taking too long, please refresh the site
+            </p>
             <textarea
                 rows="6"
                 placeholder=""
