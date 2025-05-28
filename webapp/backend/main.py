@@ -5,7 +5,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import torch.nn.functional as F
 import torch
+import os
 
+model_path = os.path.join(os.path.dirname(__file__), "model_directory")
 
 app = FastAPI()
 
@@ -26,11 +28,11 @@ base_model = AutoModelForSequenceClassification.from_pretrained(
 )
 model = PeftModel.from_pretrained(
     base_model,
-    "./model_directory",
+    model_path,
     local_files_only=True
 )
 tokenizer = AutoTokenizer.from_pretrained(
-    "./model_directory",
+    model_path,
     local_files_only=True
 )
 model.eval()
