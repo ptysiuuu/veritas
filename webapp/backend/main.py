@@ -10,7 +10,6 @@ import torch
 app = FastAPI()
 
 origins = [
-    "http://localhost:5173",
     "https://veritas-eight.vercel.app"
 ]
 
